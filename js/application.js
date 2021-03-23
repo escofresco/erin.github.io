@@ -180,7 +180,7 @@ const emojiRain = (() => {
   return {
     animate: (limit) => _animate()
   };
-})(); 
+})();
 
 function Project(className) {
   let _this = this;
@@ -191,9 +191,9 @@ function ProjectList() {
   /* A class for making filtering projects easier */
   this.project_list_id = '#project-list';
   this.projects = (() => {
-     for (const projectItem of $(this.project_list_id + ' li')) {
+    for (const projectItem of $(this.project_list_id + ' li')) {
       console.log(projectItem);
-     };
+    };
   })();
 
 }
@@ -230,10 +230,9 @@ $(window).on('load', function () {
       $(projectListItems + '.' + this.value).css('display', 'inherit');
     }
   }
-  $('#status-options').on('focus', status);
   $('#status-options').on('change', status);
-  $('#status-options').select('finished');
-
+  // Filter the list by the selected option
+  status.call($('#status-options option:selected')[0]);
   // Flip a coin to decide profile picture
   const alt_img = '/images/sobel\ blur.jpg';
   const alt_hover_img = '/images/sobel.jpg';
@@ -251,9 +250,9 @@ $(window).on('load', function () {
     });
   }
 
-  $(window).scroll(function() {
+  $(window).scroll(function () {
     $('.fixed-cta').toggleClass('relative', $(window).scrollTop() + $(window).height() > $(document).height() - $('.your-black-footer').height());
-});
+  });
 });
 
 
