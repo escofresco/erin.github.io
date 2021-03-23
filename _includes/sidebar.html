@@ -3,16 +3,15 @@
 
     <div class="row">
       <div class="col">
-        <a href="/" aria-label="Avatar">
-          <img src="{{ site.github.url }}/images/profile-small.jpeg" width="120px" height="120px"
-            class="avatar img-fluid" />
+        <a href="/" class="profile-name" aria-label="Avatar">
+          <img class="avatar mx-auto d-block" />
         </a>
       </div>
     </div>
     <div class="row">
       <div class="col">
         <section class="name">
-          <a href="/" class="dynamicFontSize" style="font-size: 26px !important;">
+          <a href="/" class="profile-name" class="dynamicFontSize" style="font-size: 26px !important;">
             <span id="fname">{{ site.name|split:' '|first }}</span>
             <span id="lname">{{ site.name|split:' '|last }}</span>
           </a>
@@ -54,7 +53,7 @@
 
           <nav class="sections">
             <ul>
-              <li><a href="/">about</a></li>
+              <li><a class="profile-name" href="/">about</a></li>
               <li><a target="_blank" href="/Jonasz_Rice_Resume.pdf">résumé</a></li>
               <li><a href="/projects">projects</a></li>
             </ul>

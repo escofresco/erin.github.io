@@ -269,7 +269,7 @@ a {
 
 .footer > .thanks .heart {
   text-decoration: none;
-  font-size: 20px;
+  /* font-size: 20px; */
 }
 
 .footer > .twitter {
@@ -284,14 +284,52 @@ a {
   margin-left: 50px;
   width: 150px;
   text-align: center;
+  transition: color .3s ease-in-out !important;
 }
 
 .sidebar .avatar {
-  border-radius: 50%;
-  /* margin-top: calc(50vh - 100px); */
+  /* border-radius: 50%; */
+  background-image: url("/images/laplace\ blur.jpg");
+  height: 7.69em;
+  width: 4.75em;
+  position: sticky;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  /* border: #000 6px solid; */
+  margin-top: 90px; /*calc(30vh - 200px);*/
+  margin-bottom: 5px;
+  border: 5px solid black;
+  box-shadow: inset 0px 0px 0px 3px black;
+  box-sizing: border-box; /* Include padding and border in element's width and height */
+}
+
+.profile-name:hover {
+  transition: color .3s ease-in-out !important;
+  -webkit-animation: zomg 0.9s infinite;
+  -moz-animation: zomg 0.9s infinite;
+  animation: zomg 0.9s infinite;
+}
+
+select {
+  width: auto;
+}
+select:focus {
+  min-width: 20px;
+  width: auto;
+}
+
+option {
+  width: auto;
 }
 
 .sidebar .avatar:hover {
+  background-image: url("/images/laplace.jpg");
+  height: 7.69em;
+  width: 4.75em;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
   -webkit-animation: zomg 0.9s infinite;
   -moz-animation: zomg 0.9s infinite;
   animation: zomg 0.9s infinite;
@@ -484,7 +522,7 @@ pointer: cursor !important;
   transition: font-variation-settings 1s ease;
 }
 
-.content .listing a:hover {
+.content .listing a:hover, .profile-name:hover {
   font-variation-settings: "wght" 800;
   pointer: cursor;
 }
@@ -579,7 +617,7 @@ pointer: cursor !important;
 /**********************
  * Links
  *********************/
-a {
+a, .profile-name {
   color: #8B8982;
   transition: color .3s ease-in-out;
 	-moz-transition: color .3s ease-in-out;
@@ -589,7 +627,7 @@ a {
   font-weight: bold;
 }
 
-a:hover {
+a:hover, .profile-name:hover {
   -webkit-animation: zomg 3s infinite;
   -moz-animation: zomg 3s infinite;
   animation: zomg 3s infinite;

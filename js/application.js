@@ -1,8 +1,13 @@
 'use strict';
+let projectList;
 const assert = (condition) => {
   if (!!!condition)
     throw "Assertion Error!";
-}
+};
+
+const flipCoin = () => {
+  return Math.random() > 0.5;
+};
 
 const activeframeSingleton = (() => {
   /* iframe display logic to make sure only one iframe shows up at a time
@@ -169,23 +174,91 @@ const emojiRain = (() => {
   function _animate() {
     for (let i in circles) circles[i].update();
     if (circleInView) requestAnimationFrame(_animate);
-    else console.log("forecast: no emoji rain");
+    else console.log('forecast: no emoji rain');
     circleInView = true;
   }
   return {
     animate: (limit) => _animate()
   };
-})();
+})(); 
+
+function Project(className) {
+  let _this = this;
+  this.className = className;
+}
+
+function ProjectList() {
+  /* A class for making filtering projects easier */
+  this.project_list_id = '#project-list';
+  this.projects = (() => {
+     for (const projectItem of $(this.project_list_id + ' li')) {
+      console.log(projectItem);
+     };
+  })();
+
+}
+
+function filterProjectList(className) {
+
+  $(this).css()
+  for (const projectItem of $('#project-list li')) {
+    if (!$(projectItem).hasClass(className)) {
+      projectItem.css('display', 'none');
+    }
+  };
+}
 
 $(window).on('load', function () {
   /* Do these things once loaded */
 
-  // Make all attribute of the frame overlay singleton immutable.
+  // Make all attributes of the frame overlay singleton immutable.
   Object.freeze(activeframeSingleton);
 
   // Enable Bootstrap tooltip
-  $("body").tooltip({ selector: '[data-toggle=tooltip]' });
+  $('body').tooltip({ selector: '[data-toggle=tooltip]' });
 
   //emojiRain.animate();
 
+  // Listen for a filter selection
+  function status() {
+    const projectListItems = '#project-list li';
+    console.log(this);
+    if (this.value === 'all') {
+      $(projectListItems).css('display', 'inherit');
+    } else {
+      $(projectListItems).css('display', 'none');
+      $(projectListItems + '.' + this.value).css('display', 'inherit');
+    }
+  }
+  $('#status-options').on('focus', status);
+  $('#status-options').on('change', status);
+  $('#status-options').select('finished');
+
+  // Flip a coin to decide profile picture
+  const alt_img = '/images/sobel\ blur.jpg';
+  const alt_hover_img = '/images/sobel.jpg';
+  const is_heads = false; //flipCoin();
+
+  if (is_heads) {
+    // Change background image
+    $('.sidebar .avatar').css('background-image', `url("${alt_img}")`);
+
+    // Change hover image
+    $('.sidebar .avatar').hover(function () {
+      $(this).css('background-image', `url("${alt_hover_img}")`);
+    }, function () {
+      $(this).css('background-image', `url("${alt_img}")`);
+    });
+  }
+
+  $(window).scroll(function() {
+    $('.fixed-cta').toggleClass('relative', $(window).scrollTop() + $(window).height() > $(document).height() - $('.your-black-footer').height());
 });
+});
+
+
+
+$(document).ready(() => {
+  // $('.sidebar .avatar').css("background-image", 'url("/images/laplace\ blur.jpg")');
+  // $('.sidebar .avatar:hover').css('background-image', `url("${alt_hover_img}")`);
+})

@@ -7,65 +7,71 @@ title: "projects"
 
   <h1>Projects</h1>
 
-  <p>A collection of apps and programs. Everything here can also be viewed on <a
+  <p><label for="status-options">A collection of</label>
+      <select id="status-options">
+        <option value="finished">finished</option>
+        <option value="ongoing">ongoing</option>
+        <option value="planned">planned</option>
+        <option value="all">all</option>
+      </select> programs and notebooks. Everything here can also be viewed on <a
       href="https://github.com/escofresco">GitHub</a>.
 
   </p>
   <p>
-  <ul class="listing projects">
+
+  <!--
+    These are used to filter the projects list:
+    .finished .ongoing .planned 
+  -->
+  <ul class="listing projects" id="project-list">
     <h3 class="rainbow">2021</h3>
-    <li>
+    <li class="planned">
       <p><a target="_blank" href="https://github.com/escofresco/locoledger">Loco Ledger</a>: Leave a note that no one
         may ever hear.
       </p>
     </li>
     <h3 class="rainbow">2020</h3>
-    <li>
+    <li class="planned">
       <p><a target="_blank" href="https://github.com/escofresco/clary">Clary Concepts</a>: Anyone can make pretty
         sounds.
       </p>
     </li>
-    <li>
+    <li class="finished">
       <p><a target="_blank" href="https://www.kaggle.com/escofresco/lending-club">Lending Club Borrower Analysis</a>: A
         notebook exploring the characteristics of creditworthy borrowers between 2007 and 2019.
       </p>
     </li>
-    <li>
+    <li class="ongoing">
       <p><a target="_blank" href="https://github.com/escofresco/puddles">Puddles</a>: A budgeting app that doesn't give
         you a headache.
       </p>
     </li>
-    <li>
+    <li class="finished">
       <p><a target="_blank" href="https://github.com/escofresco/match_point">Match Point</a>: A simple chat app.
       </p>
     </li>
-    <li>
+    <li class="finished">
       <p><a target="_blank" href="https://github.com/escofresco/howfast">How Fast</a>: A C++ implementation of Dan
         Willard's Y-fast trie.
       </p>
     </li>
-    <li>
-      <p><a target="_blank" href="https://github.com/escofresco/its-a-match">It's a Match</a>: A C++ implementation of
-        the Gale-Shapely algorithm in three variations.
-      </p>
-    </li>
-    <li>
+    <li class="finished">
       <p><a target="_blank" href="https://github.com/escofresco/detree">DeTree</a>: A web app that trains a decision
         tree on data and let's you see it.
       </p>
     </li>
-    <li>
+    <li class="ongoing">
       <p><a target="_blank" href="https://tinydoor.co">Tiny Door</a>: A service that uses emotion-detection through
         video to score the valence of crowds.
       </p>
     </li>
-    <li>
+    <li class="finished">
       <p><a target="_blank" href="https://github.com/escofresco/picint">PicInt</a>: An API for extracting digits from
         images.
       </p>
     </li>
     <h3 class="rainbow">2019</h3>
-    <li>
+    <li class="finished">
       <p>
         <a onclick="toggleIframe(this)">Gif Search</a>: A tenor clone for searching GIFs.
       </p>
@@ -82,7 +88,7 @@ title: "projects"
         </div>
       </div>
     </li>
-    <li>
+    <li class="finished">
       <p>
         <a onclick="toggleIframe(this)">Spaceman</a>: A lively adaptation of
         the morbid game you've probably played at least once.
@@ -94,13 +100,13 @@ title: "projects"
           sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
       </div>
     </li>
-    <li>
+    <li class="finished"> 
       <p>
         <a target="_blank" href="https://pypi.org/project/grams/">Grams</a>: A PyPI package for interacting with and
         visualizing histograms.
       </p>
     </li>
-    <li>
+    <li class="finished">
       <p>
         <a target="_blank" href="https://reallylistening.herokuapp.com/">Really Listening</a>: A web app for
         transcribing and viewing the sentiment of spoken audio.<a type="button"
@@ -110,7 +116,7 @@ title: "projects"
         </a>
       </p>
     </li>
-    <li>
+    <li class="finished">
       <p>
         <a onclick="toggleIframe(this)">Captain Rainbow's Color Checklist</a>: a colorful console checklist.
       </p>
@@ -123,7 +129,7 @@ title: "projects"
           sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
       </div>
     </li>
-    <li>
+    <li class="ongoing">
 
       <p><a target="_blank" href="https://realside.herokuapp.com/">Real Side</a>: A news site consisting exclusively of
         automated content.<a type="button" class="btn btn-link p-0 dagger-btn text-secondary" data-html="true"
@@ -132,7 +138,7 @@ title: "projects"
       </p>
 
     </li>
-    <li>
+    <li class="ongoing">
       <p><a target="_blank" href="https://soundsieve.herokuapp.com/">Sound Sieve</a>: the frontend for a planned source
         separation product.<a type="button" class="btn btn-link p-0 dagger-btn text-secondary" data-html="true"
           data-toggle="tooltip" data-placement="right"
@@ -141,7 +147,7 @@ title: "projects"
         </a>
       </p>
     </li>
-    <li>
+    <li class="finished">
       <p><a target="_blank" href="https://realtweets.herokuapp.com">Real Tweets</a>: Uses a hidden markov model to
         generate text.<a type="button" class="btn btn-link p-0 dagger-btn text-secondary" data-html="true"
           data-toggle="tooltip" data-placement="right"
@@ -150,7 +156,7 @@ title: "projects"
         </a>
       </p>
     </li>
-    <li>
+    <li class="finished">
       <p><a onclick="toggleIframe(this)">herd immunity</a>: Simulates the spread
         of a virus through a population.
       </p>
@@ -162,7 +168,7 @@ title: "projects"
           sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
       </div>
     </li>
-    <li>
+    <li class="finished">
       <p><a target="_blank" href="https://make-wiki.herokuapp.com/">Make Wiki</a>: A django site that let's anyone make
         a wiki post.<a type="button" class="btn btn-link p-0 dagger-btn text-secondary" data-html="true"
           data-toggle="tooltip" data-placement="right"
@@ -171,7 +177,7 @@ title: "projects"
         </a>
       </p>
     </li>
-    <li>
+    <li class="finished">
       <p><a target="_blank" href="https://videoplaylister.herokuapp.com/">Video Playlister</a>: Make youtube playlists
         for the world to see.<a type="button" class="btn btn-link p-0 dagger-btn text-secondary" data-html="true"
           data-toggle="tooltip" data-placement="right"
@@ -182,41 +188,41 @@ title: "projects"
     </li>
 
     <h3 class="rainbow">2018</h3>
-    <li>
+    <li class="finished">
       <p><a target="_blank" href="https://ohanksmanagement.com/">O'hanks Management</a>: The web site for a local
         property management business.
       </p>
     </li>
-    <li>
+    <li class="finished">
       <p><a target="_blank"
           href="https://github.com/escofresco/DLND-face-generation/blob/master/dlnd_face_generation.ipynb">Face
           Generator</a>: A notebook that uses GANs to generate faces of people.
       </p>
     </li>
-    <li>
+    <li class="finished">
       <p><a target="_blank"
           href="https://github.com/escofresco/DLND-tv-script-generation/blob/master/dlnd_tv_script_generation.ipynb">TV
           Script Generator</a>: A notebook that uses RNNs to generate new scripts from The Simpsons.
       </p>
     </li>
-    <li>
+    <li class="finished">
       <p><a target="_blank" href="https://github.com/escofresco/DLND-dog-project/blob/master/dog_app.ipynb">Dog App</a>:
         A notebook that uses CNNs to classify dog breed.
       </p>
     </li>
-    <li>
+    <li class="finished">
       <p><a target="_blank" href="https://github.com/escofresco/MLND-smartcab/blob/master/smartcab.ipynb">Smart Cab</a>:
         A notebook that uses Q-learning to train a car to drive.
       </p>
     </li>
 
     <h3 class="rainbow">&lt; 2017</h3>
-    <li>
+    <li class="finished">
       <p><a target="_blank" href="https://github.com/escofresco/pdf-sign">PDF Sign</a>: A desktop app for signing
         PDFs.</a>
       </p>
     </li>
-    <li>
+    <li class="finished">
       <p><a target="_blank" href="https://github.com/escofresco/finding_donors/blob/master/finding_donors.ipynb">Finding
           Donors</a>: A notebook that explores the effectiveness of different supervised learning models for predicting
         someone's income.</a>
@@ -225,16 +231,4 @@ title: "projects"
   </ul>
   </p>
 
-</section>
-<section class="content">
-  <div class="footer d-flex justify-content-center">
-    <section class="thanks">
-      <span>y0rdinary,</span>
-      <span><a onClick="emojiRain.animate()" class="heart" aria-hidden="true"><br>av🥑<br>cad🥑</a></span>
-    </section>
-    <!-- <section class="twitter">
-    <span><strong>†</strong>please allow up to 45 seconds for app to wake up.</span>
-    <span><a href="#" class="heart" aria-hidden="true"></a></span>
-  </section> -->
-  </div>
 </section>
