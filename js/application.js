@@ -208,6 +208,27 @@ function filterProjectList(className) {
   };
 }
 
+class Page {
+  constructor(pathname) {
+    this.pathname = pathname;
+  }
+}
+
+
+class AboutPage extends Page {
+  constructor() {
+    super('/aboutme');
+  }
+}
+
+
+class ProjectsPage extends Page {
+  constructor() {
+    super('/projects');
+  }
+}
+
+
 $(window).on('load', function () {
   /* Do these things once loaded */
 
@@ -253,6 +274,9 @@ $(window).on('load', function () {
   $(window).scroll(function () {
     $('.fixed-cta').toggleClass('relative', $(window).scrollTop() + $(window).height() > $(document).height() - $('.your-black-footer').height());
   });
+
+
+
 });
 
 
