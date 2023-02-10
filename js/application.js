@@ -115,10 +115,10 @@ const emojiRain = (() => {
    * courtesy of https://codepen.io/robertheiser/pen/NXrqXa
    */
   const container = document.querySelector("#animate");
-  const emoji = ['🌽', '🍇', '🍌', '🍒', '🍕', '🍷', '🍭', '💖', '💩', '🐷', '🐸', '🐳', '🎃', '🎾', '🌈', '🍦', '💁', '🔥', '😁', '😱', '🌴', '👏', '💃'];
+  const emoji = ['🌽', '🍇', '🍌', '🍒', '🍕', '🍷', '🍭', '💖', '💩', '🐷', '🐸', '🐳', '🎃', '🎾', '🌈', '🍦', '💁', '🔥', '😁', 
+                 '😱', '🌴', '👏', '💃'];
   const circles = [];
-  let circleInView = true;
-
+  let steps = 0
   function Circle(x, y, c, v, range) {
     let _this = this;
     this.x = x;
@@ -133,14 +133,13 @@ const emojiRain = (() => {
     this.element.style.color = 'hsl(' + (Math.random() * 360 | 0) + ',80%,50%)';
     this.element.innerHTML = c;
     container.appendChild(this.element);
-
     this.update = () => {
       if (_this.y > window.innerHeight * 2) {
-        _this.y = 80 + Math.random() * 4;
-        _this.x = _this.range[0] + Math.random() * _this.range[1];
-        circleInView = false;
+        // _this.y = 80 + Math.random() * 4;
+        // _this.x = _this.range[0] + Math.random() * _this.range[1];
         return;
       }
+
       _this.y += _this.v.y;
       _this.x += _this.v.x;
       this.element.style.opacity = 1;
@@ -171,16 +170,25 @@ const emojiRain = (() => {
     addCircle(i * 150, [10 + 600, 300], emoji[Math.floor(Math.random() * emoji.length)]);
   }
 
-  function _animate() {
-    for (let i in circles) circles[i].update();
-    if (circleInView) requestAnimationFrame(_animate);
-    else console.log('forecast: no emoji rain');
-    circleInView = true;
+  function animate() {
+    for (let i in circles) {
+      circles[i].update();
+    }
+
+      console.log(circles.length);
+    if (steps < 1000) {
+      requestAnimationFrame(animate)
+    }
+    steps += 1
+    // if (circleInView) requestAnimationFrame(_animate);
+    // else console.log('forecast: no emoji rain');
+    // circleInView = true;
   }
-  return {
-    animate: (limit) => _animate()
-  };
-})();
+  animate();
+});
+function makeItRain() {
+  emojiRain();
+}
 
 function Project(className) {
   let _this = this;
@@ -255,8 +263,8 @@ $(window).on('load', function () {
   // Filter the list by the selected option
   status.call($('#status-options option:selected')[0]);
   // Flip a coin to decide profile picture
-  const alt_img = '/images/sobel\ blur.jpg';
-  const alt_hover_img = '/images/sobel.jpg';
+  const alt_img = '/images/laplace\ blur.jpg';
+  const alt_hover_img = '/images/laplace.jpg';
   const is_heads = false; //flipCoin();
 
   if (is_heads) {
@@ -272,7 +280,8 @@ $(window).on('load', function () {
   }
 
   $(window).scroll(function () {
-    $('.fixed-cta').toggleClass('relative', $(window).scrollTop() + $(window).height() > $(document).height() - $('.your-black-footer').height());
+    $('.fixed-cta').toggleClass(
+      'relative', $(window).scrollTop() + $(window).height() > $(document).height() - $('.your-black-footer').height());
   });
 
 
